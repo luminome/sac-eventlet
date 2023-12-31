@@ -523,6 +523,7 @@ function supervise_eventlet() {
         attr:{},
         record:{},
         show_hide,
+        collapse_expand,
         init,
         attach: attach_eventlet,
     }
