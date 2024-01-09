@@ -1,0 +1,10 @@
+{
+  "src/eventlet.js": {
+    "css": [
+      "assets/eventlet-PhCC2qPE.css"
+    ],
+    "file": "assets/eventlet-HarMeC42.js",
+    "isEntry": true,
+    "src": "src/eventlet.js"
+  }
+}

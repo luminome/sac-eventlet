@@ -13,10 +13,11 @@ let tab_state = false;
 
 
 const ivt_cb = (e, eventlet) => {
-    if(e instanceof Event){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-    }
+    console.log(e);
+    // if(e instanceof Event){
+    //     e.preventDefault();
+    //     e.stopImmediatePropagation();
+    // }
 
     if(eventlet.attr.hasOwnProperty('Tab') && eventlet.attr.Tab !== tab_state){
         supervisor.show_hide(eventlet.attr.Tab);
@@ -33,21 +34,20 @@ const ivt_cb = (e, eventlet) => {
 
 
 document.querySelector('#app').innerHTML += `
-  <button id="control" class="date-selection btn" href="#" data-value="1">??</button>
   <div id="general"></div>
 `
 
-btn = document.querySelector('#control');
+// btn = document.querySelector('#control');
 general = document.querySelector('#general');
 app = document.querySelector('#app');
 
 keys.init(window, ivt_cb, {eventlet_type:'keyboard'});
-super_evt.init(app, ivt_cb, {eventlet_type:'pointer', context_disable:true});
-button_evt.init(btn, ivt_cb, {eventlet_type:'pointer', interval:50, context_disable:false});
+super_evt.init(document, ivt_cb, {eventlet_type:'pointer', context_disable:true, blocks:false});
+// button_evt.init(btn, ivt_cb, {eventlet_type:'pointer', interval:50, context_disable:false});
 
 supervisor.attach(keys);
 supervisor.attach(super_evt);
-supervisor.attach(button_evt);
+// supervisor.attach(button_evt);
 
 keys.watch('ok');
 

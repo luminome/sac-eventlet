@@ -95,18 +95,21 @@ const create_eventlet = () => {
         _map: new Map(),
         _mct: 0,
         end:(evt) => {
+            if(!evt) return;
             for(let t of evt){
                 TC._map.delete(t.identifier);
                 TC._mct --;
             }
         },
         start:(evt) => {
+            if(!evt) return;
             for(let t of evt){
                 TC._map.set(t.identifier,{'x': t.clientX, 'y': t.clientY, 'index': TC._mct});
                 TC._mct ++;
             }
         },
         read:(evt) => {
+            if(!evt) return;
             for(let t of evt){
                 const m = TC._map.get(t.identifier);
                 m.x = t.clientX;
